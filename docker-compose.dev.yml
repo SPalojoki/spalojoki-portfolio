@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  portfolio_database:
+    container_name: portfolio_database
+    image: postgres:latest
+    volumes:
+      - ./data/database:/var/lib/postgresql/data
+    env_file:
+      - .env
+  portfolio_cms:
+    container_name: portfolio_cms
+    image: directus/directus:latest
+    ports:
+      - "8055:8055"
+    env_file:
+      - .env
+    volumes:
+      - ./directus/extensions:/directus/extensions
+      - ./directus/uploads:/directus/uploads
+    depends_on:
+      - portfolio_database
