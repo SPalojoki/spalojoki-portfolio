@@ -3,6 +3,7 @@ import Image from "next/image"
 import personPic from "../../public/sakari.png"
 import FeatureChip from "@/components/FeatureChip"
 import ProjectCard from "@/components/ProjectCard"
+import TechnologyChip from "@/components/TechnologyChip"
 
 const Hero = () => {
   return (
@@ -68,7 +69,7 @@ const Introduction = () => {
           — Sakari Palojoki
         </p>
       </div>
-      <div className='col-span-2 flex flex-wrap justify-between gap-4 py-12 lg:py-24'>
+      <div className='col-span-2 mb-16 mt-24 flex flex-wrap justify-between gap-4'>
         <FeatureChip
           content='Strategy & Venturing'
           description="Master's Degree in"
@@ -98,13 +99,40 @@ const Introduction = () => {
   )
 }
 
+const Technologies = () => {
+  return (
+    <section className='mb-24'>
+      <p className='text-md font-semibold text-blue-800 lg:col-span-2 lg:self-end lg:text-lg'>
+        Technologies
+      </p>
+      <h2 className='mb-4 bg-gradient-to-br from-blue-800 to-blue-900 bg-clip-text pb-1 text-2xl font-bold text-transparent lg:text-3xl'>
+        Tools under my belt
+      </h2>
+      <div className='col-span-4 flex w-full flex-wrap justify-center gap-2'>
+        <TechnologyChip name='React' type='software' />
+        <TechnologyChip name='Next.JS' type='software' />
+        <TechnologyChip name='Express' type='software' />
+        <TechnologyChip name='Docker' type='infrastructure' />
+        <TechnologyChip name='Directus' type='software' />
+        <TechnologyChip name='dbt' type='data' />
+        <TechnologyChip name='Airflow' type='data' />
+        <TechnologyChip name='Databricks' type='data' />
+        <TechnologyChip name='BigQuery' type='data' />
+        <TechnologyChip name='Google Cloud' type='infrastructure' />
+        <TechnologyChip name='AWS' type='infrastructure' />
+        <TechnologyChip name='Google Cloud Functions' type='infrastructure' />
+      </div>
+    </section>
+  )
+}
+
 const Projects = () => {
   return (
     <section className='h-screen'>
       <div className='flex items-end justify-between'>
         <div>
           <p className='text-xl font-semibold text-blue-900 lg:col-span-2 lg:self-end lg:text-2xl'>
-            Portfolio
+            Portfolio highlights
           </p>
           <h2 className='bg-gradient-to-br from-blue-800 to-blue-950 bg-clip-text pb-1 text-4xl font-bold text-transparent lg:text-5xl'>
             Projects in my freetime
@@ -143,6 +171,7 @@ const Home = () => {
       >
         <div className='container mx-auto'>
           <Introduction />
+          <Technologies />
           <Projects />
         </div>
       </main>
