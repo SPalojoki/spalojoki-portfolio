@@ -1,8 +1,8 @@
 import { FaGithub, FaLinkedinIn, FaArrowDown } from "react-icons/fa6"
 import Image from "next/image"
 import personPic from "../../public/sakari.png"
-import signaturePic from "../../public/signature.png"
 import FeatureChip from "@/components/FeatureChip"
+import ProjectCard from "@/components/ProjectCard"
 
 const Hero = () => {
   return (
@@ -48,7 +48,7 @@ const Hero = () => {
 
 const Introduction = () => {
   return (
-    <section className='container mx-auto grid-cols-1 lg:grid lg:grid-cols-2 lg:grid-rows-[1fr_auto_3fr] lg:items-center lg:gap-x-12 lg:gap-y-2 xl:grid-rows-[1fr_auto_2fr]'>
+    <section className='grid-cols-1 lg:grid lg:grid-cols-2 lg:grid-rows-[1fr_auto_3fr] lg:items-center lg:gap-x-12 lg:gap-y-2 xl:grid-rows-[1fr_auto_2fr]'>
       <p className='text-2xl font-semibold text-blue-900 lg:col-span-2 lg:self-end lg:text-3xl'>
         Introduction
       </p>
@@ -98,6 +98,41 @@ const Introduction = () => {
   )
 }
 
+const Projects = () => {
+  return (
+    <section className='h-screen'>
+      <div className='flex items-end justify-between'>
+        <div>
+          <p className='text-xl font-semibold text-blue-900 lg:col-span-2 lg:self-end lg:text-2xl'>
+            Portfolio
+          </p>
+          <h2 className='bg-gradient-to-br from-blue-800 to-blue-950 bg-clip-text pb-1 text-4xl font-bold text-transparent lg:text-5xl'>
+            Projects in my freetime
+          </h2>
+        </div>
+        <a
+          href='/projects'
+          className='group mr-1 hidden pb-1 font-normal text-blue-900 md:inline-block'
+        >
+          See all projects
+        </a>
+      </div>
+      <div className='flex snap-x snap-mandatory scroll-m-4 gap-4 overflow-x-auto p-1 pb-2 pt-8 md:grid md:grid-cols-2 md:grid-rows-2 lg:grid-cols-4 lg:grid-rows-1'>
+        <ProjectCard />
+        <ProjectCard />
+        <ProjectCard />
+        <ProjectCard />
+      </div>
+      <a
+        href='/projects'
+        className='mt-4 block w-full text-center font-normal text-blue-900 md:hidden'
+      >
+        See all projects
+      </a>
+    </section>
+  )
+}
+
 const Home = () => {
   return (
     <>
@@ -106,7 +141,10 @@ const Home = () => {
         id='start'
         className='bg-gradient-to-r from-sky-50 to-blue-100 px-4 pt-8'
       >
-        <Introduction />
+        <div className='container mx-auto'>
+          <Introduction />
+          <Projects />
+        </div>
       </main>
     </>
   )
