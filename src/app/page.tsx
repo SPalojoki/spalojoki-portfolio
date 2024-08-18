@@ -128,7 +128,7 @@ const Technologies = () => {
 
 const Projects = () => {
   return (
-    <section className='h-screen'>
+    <section className=''>
       <div className='flex items-end justify-between'>
         <div>
           <p className='text-xl font-semibold text-blue-900 lg:col-span-2 lg:self-end lg:text-2xl'>
@@ -161,6 +161,24 @@ const Projects = () => {
   )
 }
 
+const Outro = () => {
+  return (
+    <section className='flex h-80 flex-col items-center justify-center gap-8'>
+      <p className='text-2xl font-extralight text-blue-900'>
+        Get in touch or check out more!
+      </p>
+      <div className='flex gap-8 text-4xl text-blue-900 hover:text-blue-950'>
+        <a href='https://linkedin.com/in/sakaripalojoki'>
+          <FaLinkedinIn />
+        </a>
+        <a href='https://github.com/SPalojoki'>
+          <FaGithub />
+        </a>
+      </div>
+    </section>
+  )
+}
+
 const Home = () => {
   return (
     <>
@@ -173,6 +191,7 @@ const Home = () => {
           <Introduction />
           <Technologies />
           <Projects />
+          <Outro />
         </div>
       </main>
     </>
